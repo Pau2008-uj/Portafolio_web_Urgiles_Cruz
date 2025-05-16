@@ -1,0 +1,759 @@
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
+
+:root {
+    --verde: #11662b;
+    --rojo: #742a0f;
+    --degradado: linear-gradient(90deg, var(--verde), var(--rojo));
+    --btn-fondo: linear-gradient(45deg, #ff80ca7e, #e4b0d3);
+}
+
+* {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    text-transform: capitalize;
+}
+
+*::selection {
+    background: var(--rojo);
+    color: rgb(255, 237, 254);
+}
+
+html {
+    font-size: 50%;
+    overflow-y: scroll;
+}
+
+body {
+    background: rgb(255, 235, 255);
+    padding-top: 80px; 
+}
+
+section {
+    min-height: 100vh;
+    padding: 0 9%;
+    padding-top: 7.5rem;
+    padding-bottom: 4rem;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: .8rem 2.5rem;
+    border-radius: 5rem;
+    background: var(--btn-fondo);
+    font-size: 1.8rem;
+    color: #ffffff;
+    cursor: pointer;
+    box-shadow: 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    transition: all .3s linear;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}
+
+.heading {
+    text-align: center;
+    padding: 1rem;
+    margin-bottom: 2rem; 
+    background: none; 
+    color: var(--verde); 
+    font-size: 3rem; 
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: url(img/marmol.avif) no-repeat center center / cover;  
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    padding: 2rem 9%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+}
+
+header .logo {
+    font-size: 2.2rem;
+    color: var(--rojo);
+}
+
+header .logo span {
+    color: var(--verde);
+}
+
+header .navbar {
+    display: flex;
+}
+
+header .navbar a {
+    font-size: 1.8rem;
+    margin-left: 3.5rem;
+    color: var(--verde);
+}
+
+header .navbar a:hover {
+    color: var(--rojo);
+}
+
+header input {
+    display: none;
+}
+
+header label {
+    font-size: 2.5rem;
+    color: var(--rojo);
+    cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
+}
+
+@media (max-width: 768px) {
+    header label {
+        visibility: visible;
+        opacity: 1;
+    }
+    header .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 1rem 2rem;
+        border-top: .1rem solid rgba(0, 0, 0, 0.1);
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+        transform-origin: top;
+        transform: scaleY(0);
+        opacity: 0;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; 
+    }
+    
+
+    header input:checked ~ .navbar {
+        
+        background: url('img/marmol.avif') no-repeat center center / cover; 
+        transform: scaleY(1);
+        opacity: 1;
+    }
+
+    header .navbar a { 
+        display: block;
+        margin: 1rem 0;
+        font-size: 2rem;
+        text-align: left; 
+    }
+
+    header input:checked ~ label::before {
+        content: '\f00d';
+    }
+
+    .inicio {
+        flex-direction: column-reverse;
+        justify-content: center;
+    }
+
+    .inicio .imagen {
+        order: -1;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1rem;
+    }
+
+    .inicio .imagen img {
+        width: 60%;
+        max-width: 300px;
+    }
+
+    .inicio .content {
+        text-align: center;
+    }
+}
+
+.inicio {
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    background: url(img/marmol.avif) no-repeat center center / cover;  
+    min-height: 70vh; 
+    position: relative;
+    color: #fff; 
+    flex-wrap: wrap; 
+}
+
+.inicio .imagen {
+    flex: 1; 
+    display: flex;
+    justify-content: center; 
+    position: relative; 
+}
+
+.inicio .imagen img {
+    width: 50vh;
+    animation: float 5s linear infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0rem);
+    }
+    50% {
+        transform: translateY(-4.5rem);
+    }
+}
+
+.inicio .content {
+    flex: 1; 
+    text-align: center; 
+    padding: 2rem;
+    z-index: 2; 
+}
+
+.inicio .content h3 {
+    font-size: 3.5rem;
+    color: #d42c8e; 
+    text-transform: uppercase;
+}
+
+.inicio .content h3 span {
+    color: var(--rojo);
+    text-transform: uppercase;
+}
+
+.inicio .content p {
+    font-size: 2.1rem; 
+    color: #000000; 
+    padding: 1rem 0;
+}
+
+@media(max-width:1200px) {
+    html {
+        font-size: 55%;
+    }
+}
+
+@media(max-width:450px) {
+    html {
+        font-size: 49%;
+    }
+
+    .inicio {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .inicio .imagen img {
+        width: 60%;
+        max-width: 300px;
+    }
+}
+
+.la-leyenda-de-la-luna {
+    background: url(img/marmol.avif) no-repeat center center / cover;
+    padding: 2rem;
+    margin: 2rem 0;
+    border-radius: 10px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    max-width: 800px; 
+    margin-left: auto; 
+    margin-right: auto; 
+}
+
+.heading {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3rem; 
+    text-align: center; 
+    color: #008000;
+    margin-bottom: 1rem;
+}
+
+
+
+h2 {
+    font-family: 'Poppins', sans-serif; 
+    font-size: 2.15rem; 
+    color: #ad115f;
+    text-align: center; 
+    margin-bottom: 1rem;
+}
+p {
+    font-family: 'Poppins', sans-serif; 
+    font-size: 2.1rem; 
+    line-height: 1.6;
+    color: #000000; 
+    margin-bottom: 1rem; 
+}
+
+.la-leyenda-de-la-luna-image {
+    display: block; 
+    max-width: 80%; 
+    height: auto; 
+    margin: 1rem auto; 
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.video-link {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem; 
+    color: #6e0e46; 
+    text-decoration: underline;
+    transition: color 0.3s; 
+}
+
+
+.video-link:hover {
+    color: #e03d8e;
+}
+
+.btn {
+    display: inline-block; 
+    padding: 1rem 2rem; 
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.4rem; 
+    color: #fff; 
+    background-color: #ff69b4; 
+    border: none; 
+    border-radius: 30px; 
+    cursor: pointer; 
+    text-align: center; 
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-top: 2rem; 
+}
+
+.btn:hover {
+    background-color: #ff1493; 
+    transform: scale(1.05);
+}
+
+.Biografia .caja-contenedor {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background: url(img/marmol.avif) no-repeat center center / cover; 
+}
+
+.Biografia .caja-contenedor .caja {
+    flex: 1 1 30rem;
+    background: #ffd1e1;
+    background: url(img/marmol.avif) no-repeat center center / cover; 
+    border-radius: 0.5rem;
+    border: .1rem solid rgba(0, 0, 0, .2);
+    box-shadow: 0.5rem 1rem rgba(0, 0, 0, .1);
+    margin: 1.5rem;
+    padding: 2rem; 
+    text-align: center;
+    font-size: 2rem; 
+}
+
+.Biografia .caja-contenedor .caja img {
+    max-height: 250px; 
+    object-fit: cover; 
+}
+
+.Biografia .caja-contenedor .caja h3 {
+    font-size: 2.8rem; 
+    color: rgb(122, 22, 81); 
+    margin-bottom: 1rem; 
+}
+
+.Biografia .caja-contenedor .caja p {
+    font-size: 2.1rem; 
+    color: #181616;
+    padding: 1rem 0;
+}
+
+.Lugar_Favorito {
+    background: url(img/marmol.avif) no-repeat center center / cover;
+    padding: 3rem 0; 
+    color: #ffffff; 
+}
+
+.Lugar_Favorito .columna {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.Lugar_Favorito .columna .image {
+    flex: 1 1 30rem; 
+    display: flex; 
+    justify-content: center; 
+}
+
+.Lugar_Favorito .columna .image img {
+    width: 60%;
+    max-width: 400px; 
+    height: auto; 
+    border-radius: 1rem; 
+}
+
+.Lugar_Favorito .columna .content {
+    flex: 1 1 30rem; 
+    padding: 1rem;
+}
+
+.Lugar_Favorito .columna .content h3 {
+    font-size: 3.5rem; 
+    color: #c0134f;
+}
+
+
+.Lugar_Favorito .columna .content p {
+    font-size: 2.1rem; 
+    color: #000000;
+    padding: 1rem 0;
+}
+
+.Lugar_Favorito .columna .bottons {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem; 
+}
+
+.Lugar_Favorito .columna .bottons a {
+    margin: 0 1rem; 
+}
+.Preguntas {
+    text-align: center; 
+    margin: 0 auto; 
+    background: url(img/marmol.avif) no-repeat center center / cover; 
+    padding: 2rem; 
+    border-radius: 10px;
+}
+
+.pregunta {
+    display: inline-block; 
+    width: 100%;
+    max-width: 600px; 
+    margin: 20px auto; 
+}
+
+
+
+/* Estilo para centrar el contenido dentro de la sección */
+.Preguntas h1 {
+    text-align: center; /* Centra el título */
+}
+
+/* Estilo para las imágenes de las preguntas */
+.pregunta-imagen {
+    max-width: 35%; /* Ajusta el ancho máximo al 35% del contenedor */
+    height: auto; /* Mantiene la relación de aspecto */
+    margin: 20px auto; /* Espaciado superior e inferior y centra horizontalmente */
+    display: block; /* Hace que la imagen ocupe su propia línea */
+}
+
+/* Ocultar los checkboxes */
+input[type="checkbox"] {
+    display: none; /* Oculta el checkbox */
+}
+
+/* Estilo del label (pregunta) */
+label {
+    cursor: pointer; /* Cambia el cursor al pasar sobre la pregunta */
+    color: #6B2A59; /* Color del texto del label en morado oscuro */
+    font-weight: bold; /* Estilo de texto */
+    font-size: 2.1rem; /* Aumenta el tamaño de la fuente para las preguntas */
+    padding: 10px; /* Espaciado alrededor del texto */
+    display: block; /* Para que ocupe toda la línea */
+    transition: background-color 0.3s; /* Efecto al pasar el mouse */
+}
+
+/* Efecto al pasar el mouse sobre el label */
+label:hover {
+    background-color: #F4A6B5; /* Cambia el fondo al pasar el mouse */
+}
+
+/* Estilo para la respuesta */
+.respuesta {
+    display: none; /* Inicialmente ocultar las respuestas */
+    padding: 10px; /* Espaciado interno */
+    background: url(img/marmol.avif) no-repeat center center / cover;
+    border: 1px solid #ccc; /* Borde */
+    border-radius: 5px; /* Esquinas redondeadas */
+    margin-top: 5px; /* Espacio superior */
+}
+
+/* Mostrar la respuesta cuando el checkbox está marcado */
+.pregunta input[type="checkbox"]:checked + label + .respuesta {
+    display: block; /* Mostrar la respuesta */
+}
+
+
+.MetaAFuturo {
+    background-size: cover;
+    padding: 3rem 0; 
+    color: #070707; 
+}
+.MetaAFuturo .columna {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+    background: url(img/marmol.avif) no-repeat center center / cover; 
+}
+
+.MetaAFuturo .image {
+    width: 100%; 
+    max-width: 400px; 
+}
+
+.MetaAFuturo .image img {
+    width: 100%; 
+    height: auto; 
+    display: block; 
+    border-radius: 8px; 
+}
+
+.MetaAFuturo .content {
+    margin-top: 20px; 
+}
+
+
+.MetaAFuturo .content h3 {
+    font-size: 3.5rem; 
+    color: var(--rojo); 
+}
+
+.MetaAFuturo .content p {
+    font-size: 2.1rem; 
+    color: #000000; 
+    padding: 1rem 0;
+}
+
+.MetaAFuturo .content .btn {
+    margin-top: 1rem; 
+}
+
+/* Estilos generales para la sección Contactos */
+.Contactos {
+    display: flex; /* Hacer que la sección sea flexible */
+    justify-content: center; /* Centrar contenido en el eje horizontal */
+    align-items: flex-start; /* Alinear contenido en la parte superior */
+    min-height: 100vh; /* Altura mínima de la sección */
+    padding: 50px; /* Espaciado alrededor */
+    background: url(img/marmol.avif) no-repeat center center / cover; 
+}
+
+/* Estilo para la imagen */
+.Contactos .image {
+    flex: 1; /* La imagen ocupará una parte del espacio */
+    display: flex;
+    justify-content: center; /* Centrar imagen en su contenedor */
+    align-items: center;
+    margin-right: 20px; /* Espacio entre la imagen y el formulario */
+    animation: floating 3s ease-in-out infinite; /* Añadir animación de flotación */
+}
+
+.Contactos .image img {
+    max-width: 70%; /* Asegurarse de que la imagen no exceda el contenedor */
+    height: auto; /* Mantener la relación de aspecto de la imagen */
+}
+
+/* Estilo específico para el formulario */
+.Contactos form {
+    flex: 1; /* Ocupa el espacio restante */
+    max-width: 400px; /* Ancho máximo del formulario */
+    padding: 20px; /* Espaciado interno */
+    background-color: #ffe7e4; /* Fondo de la sección (color rosa claro) */
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Sombras suaves */
+    text-align: center; /* Centrar texto en el formulario */
+    margin: 0 auto; /* Centrar el formulario */
+}
+
+/* Título "Contactos" centrado */
+.Contactos .heading {
+    text-align: center;
+    font-size: 28px; /* Tamaño de letra más grande */
+    margin-bottom: 20px; /* Espacio debajo del título */
+    color: #a8337b; /* Color de letras negro */
+    font-family: 'Arial', sans-serif; /* Tipo de letra */
+}
+
+/* Estilo de los campos del formulario */
+.Contactos .inputcaja {
+    position: relative;
+    margin-bottom: 20px; /* Espacio entre los campos */
+}
+
+.Contactos .inputcaja input,
+.Contactos .inputcaja textarea {
+    width: 100%; /* Ancho completo */
+    padding: 10px; /* Espaciado interno */
+    font-size: 18px; /* Tamaño de letra */
+    border: 1px solid #000000; /* Borde de los campos */
+    border-radius: 10px; /* Bordes redondeados */
+    outline: none; /* Sin borde al seleccionar */
+    background: url(img/dorado.avif) no-repeat center center / cover; 
+    transition: border-color 0.3s; /* Transición suave del borde */
+}
+
+.Contactos .inputcaja input:focus,
+.Contactos .inputcaja textarea:focus {
+    border-color: #292523; /* Color del borde al enfocar */
+}
+
+/* Estilo de la etiqueta */
+.Contactos .inputcaja label {
+    position: absolute; /* Permite que la etiqueta flote sobre el campo */
+    top: 10px; /* Posición inicial más cerca del borde superior */
+    left: 15px; /* Posición izquierda */
+    color: #b32560; /* Color morado oscuro */
+    font-size: 18px; /* Tamaño de letra de la etiqueta */
+    transition: 0.3s; /* Transición suave */
+    pointer-events: none; /* Ignorar eventos sobre la etiqueta */
+}
+
+/* Efecto de flotación de la etiqueta al enfocar */
+.Contactos .inputcaja input:focus + label,
+.Contactos .inputcaja input:not(:placeholder-shown) + label,
+.Contactos .inputcaja textarea:focus + label,
+.Contactos .inputcaja textarea:not(:placeholder-shown) + label {
+    top: -30px; /* Mueve la etiqueta más arriba al enfocar */
+    left: 10px; /* Posición izquierda ajustada */
+    font-size: 12px; /* Tamaño de letra más pequeño al flotar */
+    color: #ad0b8a; /* Color del texto al enfocar */
+}
+
+/* Botón de enviar */
+.Contactos .btn {
+    width: 80%; /* Ancho del botón (ajustado) */
+    padding: 10px; /* Espaciado interno */
+    background-color: #e9a6d3; /* Color de fondo del botón */
+    color: white; /* Color del texto del botón */
+    border: none; /* Sin borde */
+    border-radius: 40px; /* Bordes redondeados */
+    font-size: 18px; /* Tamaño de letra */
+    cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+    transition: background-color 0.3s, transform 0.3s; /* Transiciones suaves */
+}
+
+.Contactos .btn:hover {
+    background-color: #8d236a; /* Color de fondo al pasar el mouse */
+    transform: translateY(-5px); /* Efecto de elevar el botón */
+}
+
+/* Animación flotante */
+@keyframes floating {
+    0%, 100% {
+        transform: translateY(0); /* Posición inicial y final */
+    }
+    50% {
+        transform: translateY(-10px); /* Flotar hacia arriba */
+    }
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+    .Contactos {
+        flex-direction: column; /* Cambiar a columna en pantallas pequeñas */
+        align-items: center; /* Centrar elementos */
+    }
+
+    .Contactos .image {
+        margin-right: 0; 
+        margin-bottom: 20px; /
+    }
+}
+
+
+@media (max-width: 768px) {
+    .Contactos {
+        flex-direction: column; 
+     }
+
+    .Contactos .image {
+        margin-bottom: 20px; 
+    }
+
+    .Contactos .image img {
+        max-width: 70%; 
+    }
+
+    .Contactos form {
+        max-width: 100%; 
+}
+}
+
+
+@media (max-width: 1200px) {
+    html {
+        font-size: 77%;
+    }
+}
+
+@media (max-width: 990px) {
+    section {
+        padding: 0 3%;
+        padding-top: 7.5rem;
+        padding-bottom: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    header label {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    header .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgb(255, 205, 234);
+        padding: 1rem 2rem;
+        border-top: .1rem solid rgba(0, 0, 0, 0.1);
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+        transform-origin: top;
+        transform: scaleY(0);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 1200px) {
+    html {
+        font-size: 77%;
+    }
+}
+
+@media (max-width: 990px) {
+    section {
+        padding: 0 3%;
+        padding-top: 7.5rem;
+        padding-bottom: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    header label {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    header .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgb(255, 205, 234);
+        padding: 1rem 2rem;
+        border-top: .1rem solid rgba(0, 0, 0, 0.1);
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+        transform-origin: top;
+        transform: scaleY(0);
+        opacity: 0;
+    }
+}
